@@ -1,17 +1,16 @@
 /*
  * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
- * 
+ *
  * Created Date: Tuesday, April 11th 2023, 3:42:03 pm
  * Author: Hoàng Trung Công
- * 
+ *
  */
-
-
 
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements/dist/divider/Divider";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { useDispatch, useSelector } from "react-redux";
 
 const foods = [
   {
@@ -64,21 +63,36 @@ const styles = StyleSheet.create({
   },
 });
 
-// const isFoodInCart = (food, cartItems) =>
-//     Boolean(cartItems.find((item) => item.title === food.title));
+export default function MenuItems({ restaurantName }) {
+  const dispatch = useDispatch();
 
-export default function MenuItems() {
+  const selectItem = (item, checkboxValue) =>
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        ...item,
+        restaurantName: restaurantName,
+        checkboxValue: checkboxValue,
+      },
+    });
+
+  const cartItems = useSelector(
+    (state) => state.cartReducer.selectedItems.items
+  );
+  const isFoodInCart = (food, cartItems) =>
+    Boolean(cartItems.find((item) => item.title === food.title));
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((food, index) => (
         <View key={index}>
           <View style={styles.menuItemStyle}>
-          <BouncyCheckbox
-                iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
-                fillColor="green"
-                // isChecked={isFoodInCart(food, cartItems)}
-                // onPress={(checkboxValue) => selectItem(food, checkboxValue)}
-              />
+            <BouncyCheckbox
+              iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+              fillColor="green"
+              isChecked={isFoodInCart(food, cartItems)}
+              onPress={(checkboxValue) => selectItem(food, checkboxValue)}
+            />
             <FoodInfo food={food} />
             <FoodImage food={food} />
           </View>
