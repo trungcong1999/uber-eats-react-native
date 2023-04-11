@@ -1,41 +1,27 @@
 /*
- * Copyright (c) 2023 trungcong1999 <https://github.com/trungcong1999>
- *
+ * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
+ * 
  * Created Date: Tuesday, April 11th 2023, 3:09:14 pm
- * Author: trungcong1999
- *
+ * Author: Hoàng Trung Công
+ * 
  */
 
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-const yelpRestaurantInfo = {
-  name: "FarmHouse Kitchen Thai Cuisine",
-  image: "https://i.ytimg.com/vi/BKxGodX9NGg/maxresdefault.jpg",
-  price: "$$",
-  reviews: "1500",
-  rating: 4.5,
-  categories: [
-    { title: "Indian" },
-    { title: "Comfort Food" },
-    { title: "Coffee" },
-    { title: "Ice Cream" },
-    { title: "Snacks" },
-  ],
-};
+export default function About(props) {
+  const { name, image, price, reviews, rating, categories } =
+    props.route.params;
 
-const { name, image, price, reviews, rating, categories } = yelpRestaurantInfo;
+  const formattedCategories = categories.map((cat) => cat.title).join(" • ");
 
-const formattedCategories = categories.map((cat) => cat.title).join(" • ");
-
-const description = `${formattedCategories} ${
-  price ? " • " + price : ""
-} • 🎫 • ${rating} ⭐ (${reviews}+)`;
-export default function About() {
+  const description = `${formattedCategories} ${
+    price ? " • " + price : ""
+  } • 🎫 • ${rating} ⭐ (${reviews}+)`;
   return (
     <View>
       <RestaurantImage image={image} />
-      <RestaurentName title={name} />
+      <RestaurentName name={name} />
       <RestaurantDescription description={description} />
     </View>
   );
@@ -53,7 +39,7 @@ const RestaurentName = (props) => (
       marginHorizontal: 15,
     }}
   >
-    {props.title}
+    {props.name}
   </Text>
 );
 const RestaurantDescription = (props) => (

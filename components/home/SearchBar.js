@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2023 trungcong1999 <https://github.com/trungcong1999>
- *
+ * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
+ * 
  * Created Date: Monday, April 10th 2023, 4:06:58 pm
- * Author: trungcong1999
- *
+ * Author: Hoàng Trung Công
+ * 
  */
+
 
 import { View, Text } from "react-native";
 import React from "react";

@@ -1,10 +1,12 @@
 /*
- * Copyright (c) 2023 trungcong1999 <https://github.com/trungcong1999>
+ * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
  * 
  * Created Date: Thursday, April 6th 2023, 10:28:10 pm
- * Author: trungcong1999
+ * Author: Hoàng Trung Công
  * 
  */
+
+
 
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";

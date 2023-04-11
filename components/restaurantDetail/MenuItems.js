@@ -1,14 +1,17 @@
 /*
- * Copyright (c) 2023 trungcong1999 <https://github.com/trungcong1999>
- *
+ * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
+ * 
  * Created Date: Tuesday, April 11th 2023, 3:42:03 pm
- * Author: trungcong1999
- *
+ * Author: Hoàng Trung Công
+ * 
  */
+
+
 
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements/dist/divider/Divider";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const foods = [
   {
@@ -61,12 +64,21 @@ const styles = StyleSheet.create({
   },
 });
 
+// const isFoodInCart = (food, cartItems) =>
+//     Boolean(cartItems.find((item) => item.title === food.title));
+
 export default function MenuItems() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((food, index) => (
         <View key={index}>
           <View style={styles.menuItemStyle}>
+          <BouncyCheckbox
+                iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+                fillColor="green"
+                // isChecked={isFoodInCart(food, cartItems)}
+                // onPress={(checkboxValue) => selectItem(food, checkboxValue)}
+              />
             <FoodInfo food={food} />
             <FoodImage food={food} />
           </View>

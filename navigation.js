@@ -1,10 +1,12 @@
 /*
- * Copyright (c) 2023 trungcong1999 <https://github.com/trungcong1999>
- *
+ * Copyright (c) 2023 Hoàng Trung Công <https://github.com/trungcong1999>
+ * 
  * Created Date: Tuesday, April 11th 2023, 4:19:53 pm
- * Author: trungcong1999
- *
+ * Author: Hoàng Trung Công
+ * 
  */
+
+
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
