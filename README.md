@@ -15,6 +15,8 @@
   </a>
 </p>
 
+## Project with React Native $ Yelp API and Redux | Firebase | Google API
+
 ## 🚀 How to use
 
 - Install packages with `yarn` or `npm install`.
