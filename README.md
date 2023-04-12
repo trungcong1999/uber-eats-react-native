@@ -15,7 +15,7 @@
   </a>
 </p>
 
-## Project with React Native $ Yelp API and Redux | Firebase | Google API
+## Project with React Native & use Yelp API and Redux | Firebase | Google API
 
 ## 🚀 How to use
 
